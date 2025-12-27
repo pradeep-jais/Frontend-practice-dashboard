@@ -1,0 +1,80 @@
+:root {
+  --color-primary-dark: #2563eb;
+  --color-primary-light: #5687f0;
+  --color-bg: #ffffff;
+  --color-surface: #f8f9fa;
+
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+
+  --color-border: #e5e7eb;
+
+  --color-success: #16a34a;
+  --color-error: #dc2626;
+  --color-warning: #f59e0b;
+
+  color-scheme: light dark;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-primary-light);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.btn {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--color-primary-light);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+.btn:hover {
+  border-color: var(--color-primary-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0f172a; /* page background */
+    --color-surface: #1e293b; /* cards, modals */
+
+    --color-text-primary: #f8fafc; /* main text */
+    --color-text-secondary: #94a3b8; /* muted text */
+
+    --color-border: #334155;
+
+    --color-primary-dark: #3b82f6; /* blue */
+    --color-secondary: #64748b;
+
+    --color-success: #22c55e;
+    --color-error: #ef4444;
+    --color-warning: #facc15;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg);
+  }
+  a:hover {
+    color: var(--color-primary-dark);
+  }
+  button {
+    background-color: var(--color-primary-dark);
+  }
+}
