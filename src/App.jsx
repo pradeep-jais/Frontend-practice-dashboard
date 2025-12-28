@@ -3,6 +3,7 @@ import './App.css';
 import FetchData from './projects/00_data_fetch';
 import BlogCard from './projects/01_blog_card';
 import { projectMenu } from './projectData';
+import CardUI from './projects/02_card_ui';
 
 function App() {
   const [toggleSidebar, setToggleSidebar] = useState(false);
@@ -46,6 +47,7 @@ function App() {
           {/* <FetchData /> */}
           {activeProject === '00_data_fetch' && <FetchData />}
           {activeProject === '01_blog_card' && <BlogCard />}
+          {activeProject === '02_card_ui' && <CardUI />}
         </main>
       </div>
     </>

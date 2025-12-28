@@ -13,6 +13,8 @@
   --color-error: #dc2626;
   --color-warning: #f59e0b;
 
+  --radius: 0.25rem;
+
   color-scheme: light dark;
   color: var(--color-text-primary);
   background-color: var(--color-bg);
@@ -35,6 +37,11 @@ a:hover {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+img {
+  max-width: 50vw;
+  display: block;
+  height: auto;
 }
 
 .btn {
