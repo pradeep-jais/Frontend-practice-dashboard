@@ -2,16 +2,16 @@ export const projectMenu = [
   {
     id: 1,
     name: 'Data Fetching',
-    path: '00_data_fetch',
+    path: '01_data_fetch',
   },
   {
     id: 2,
     name: 'Blog post',
-    path: '01_blog_card',
+    path: '02_blog_card',
   },
   {
     id: 3,
     name: 'card UI',
-    path: '02_card_ui',
+    path: '03_card_ui',
   },
 ];

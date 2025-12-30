@@ -1,4 +1,4 @@
-import React from 'react';
+import './styles.css';
 
 const demoPosts = [
   {
@@ -27,7 +27,7 @@ function BlogCard() {
   return (
     <section className="section">
       <div className="max-width">
-        <h2>Blog Post Cards</h2>
+        <h2 className="section-title">Blog Post Cards</h2>
         <div className="container">
           {demoPosts.map((post) => (
             <article className="card" key={post.id} style={{ minWidth: 300 }}>

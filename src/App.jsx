@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import './App.css';
-import FetchData from './projects/00_data_fetch';
-import BlogCard from './projects/01_blog_card';
 import { projectMenu } from './projectData';
-import CardUI from './projects/02_card_ui';
+import FetchData from './projects/01_data_fetch';
+import BlogCard from './projects/02_blog_card';
+import CardUI from './projects/03_card_ui';
 
 function App() {
   const [toggleSidebar, setToggleSidebar] = useState(false);
-  const [activeProject, setActiveProject] = useState('00_data_fetch');
+  const [activeProject, setActiveProject] = useState('01_data_fetch');
 
   const selectProject = (path) => {
     console.log(path);
@@ -41,13 +41,13 @@ function App() {
             })}
           </ul>
         </aside>
-        <main>
+        <main className="main-content">
           <h1>Explore my practice project app</h1>
           <hr />
           {/* <FetchData /> */}
-          {activeProject === '00_data_fetch' && <FetchData />}
-          {activeProject === '01_blog_card' && <BlogCard />}
-          {activeProject === '02_card_ui' && <CardUI />}
+          {activeProject === '01_data_fetch' && <FetchData />}
+          {activeProject === '02_blog_card' && <BlogCard />}
+          {activeProject === '03_card_ui' && <CardUI />}
         </main>
       </div>
     </>
