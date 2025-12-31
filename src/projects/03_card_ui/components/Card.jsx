@@ -12,7 +12,7 @@ const Card = (card) => {
   const { img, title, description } = card;
 
   return (
-    <article className="card">
+    <article className="card ui-card">
       <img src={img} alt={title} />
       <div className="card-info">
         <h3>{title}</h3>

@@ -28,9 +28,13 @@ function BlogCard() {
     <section className="section">
       <div className="max-width">
         <h2 className="section-title">Blog Post Cards</h2>
-        <div className="container">
+        <div className="blog-container">
           {demoPosts.map((post) => (
-            <article className="card" key={post.id} style={{ minWidth: 300 }}>
+            <article
+              className="card blog-card"
+              key={post.id}
+              style={{ minWidth: 300 }}
+            >
               <header>
                 <h3>{post.title}</h3>
                 <small style={{ color: 'var(--color-text-secondary)' }}>

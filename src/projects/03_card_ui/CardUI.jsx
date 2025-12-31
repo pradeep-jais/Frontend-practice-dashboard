@@ -8,7 +8,7 @@ const CardUI = () => {
   return (
     <section className="section">
       <h2 className="section-title">cards from local data array</h2>
-      <div className="container card-ui-container">
+      <div className="card-ui-container">
         {cardsData.map((card) => {
           return <Card key={card.id} {...card} />;
         })}

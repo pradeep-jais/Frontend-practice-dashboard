@@ -13,6 +13,9 @@
   --color-error: #dc2626;
   --color-warning: #f59e0b;
 
+  --color-shadow-light: rgba(0, 0, 0, 0.2);
+  --color-shadow-dark: rgba(0, 0, 0, 0.3)
+
   --radius: 0.25rem;
 
   color-scheme: light dark;
@@ -34,15 +37,7 @@ a:hover {
   color: var(--color-primary-dark);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-img {
-  max-width: 50vw;
-  display: block;
-  height: auto;
-}
+
 
 .btn {
   border-radius: 8px;
@@ -75,6 +70,9 @@ img {
     --color-success: #22c55e;
     --color-error: #ef4444;
     --color-warning: #facc15;
+
+     --color-shadow-light: rgba(255, 255, 255, 0.2);
+  --color-shadow-dark: rgba(255, 255, 255, 0.3);
     color: var(--color-text-primary);
     background-color: var(--color-bg);
   }

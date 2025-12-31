@@ -39,23 +39,21 @@ function FetchData() {
 
   return (
     <section className="section">
-      <div className="max-width">
-        <h2 className="section-title">Recent Posts</h2>
-        <div className="posts-container">
-          {posts.map((p) => (
-            <article className="post-card" key={p.id}>
-              <h3>{p.title}</h3>
-              <p>
-                {p.body.slice(0, 140)}
-                {p.body.length > 140 ? '…' : ''}
-              </p>
-              <div className="tags">
-                <span className="tag">Demo</span>
-                <small>By User • {Math.floor(Math.random() * 300)} views</small>
-              </div>
-            </article>
-          ))}
-        </div>
+      <h2 className="section-title">Recent Posts</h2>
+      <div className="posts-container">
+        {posts.map((p) => (
+          <article className="card post-card" key={p.id}>
+            <h3>{p.title}</h3>
+            <p>
+              {p.body.slice(0, 140)}
+              {p.body.length > 140 ? '…' : ''}
+            </p>
+            <div className="tags">
+              <span className="tag">Demo</span>
+              <small>By User • {Math.floor(Math.random() * 300)} views</small>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

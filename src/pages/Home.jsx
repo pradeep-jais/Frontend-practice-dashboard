@@ -22,7 +22,7 @@ function Home() {
         toggleSidebar={toggleSidebar}
         setToggleSidebar={setToggleSidebar}
       />
-      <div className="layout">
+      <div className="layout max-width">
         <Sidebar toggleSidebar={toggleSidebar} selectProject={selectProject} />
         <main className="main-content">
           <h1>Explore my practice project app</h1>
