@@ -193,3 +193,7 @@ img {
   background: var(--color-primary-dark);
   transform: translateX(4px);
 }
+.sidebar li.active {
+  background: var(--color-primary-dark);
+  font-weight: bold;
+}
