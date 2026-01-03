@@ -1,17 +1,21 @@
+import FetchData from './projects/01_data_fetch';
+import BlogCard from './projects/02_blog_card';
+import CardUI from './projects/03_card_ui';
+
 export const projectMenu = [
   {
-    id: 1,
+    id: '01_data_fetch',
     name: 'Data Fetching',
-    path: '01_data_fetch',
+    component: FetchData,
   },
   {
-    id: 2,
+    id: '02_blog_card',
     name: 'Blog post',
-    path: '02_blog_card',
+    component: BlogCard,
   },
   {
-    id: 3,
+    id: '03_card_ui',
     name: 'card UI',
-    path: '03_card_ui',
+    component: CardUI,
   },
 ];

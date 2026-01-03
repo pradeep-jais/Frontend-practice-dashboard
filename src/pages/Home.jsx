@@ -2,19 +2,19 @@ import { useState } from 'react';
 
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
-
-import FetchData from '../projects/01_data_fetch';
-import BlogCard from '../projects/02_blog_card';
-import CardUI from '../projects/03_card_ui';
+import { projectMenu } from '../projectData';
 
 function Home() {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [activeProject, setActiveProject] = useState('01_data_fetch');
 
   const selectProject = (path) => {
-    console.log(path);
     setActiveProject(path);
   };
+
+  const ActiveProjectComponent = projectMenu.find(
+    (project) => project.id === activeProject
+  )?.component;
 
   return (
     <>
@@ -22,15 +22,16 @@ function Home() {
         toggleSidebar={toggleSidebar}
         setToggleSidebar={setToggleSidebar}
       />
-      <div className="layout max-width">
-        <Sidebar toggleSidebar={toggleSidebar} selectProject={selectProject} />
+      <div className="layout">
+        <Sidebar
+          toggleSidebar={toggleSidebar}
+          selectProject={selectProject}
+          projectMenu={projectMenu}
+        />
         <main className="main-content">
           <h1>Explore my practice project app</h1>
           <hr />
-          {/* <FetchData /> */}
-          {activeProject === '01_data_fetch' && <FetchData />}
-          {activeProject === '02_blog_card' && <BlogCard />}
-          {activeProject === '03_card_ui' && <CardUI />}
+          {ActiveProjectComponent && <ActiveProjectComponent />}
         </main>
       </div>
     </>
