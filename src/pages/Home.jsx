@@ -10,6 +10,7 @@ function Home() {
 
   const selectProject = (path) => {
     setActiveProject(path);
+    setToggleSidebar(false);
   };
 
   const ActiveProjectComponent = projectMenu.find(
@@ -29,6 +30,12 @@ function Home() {
           projectMenu={projectMenu}
           activeProject={activeProject}
         />
+        {toggleSidebar && (
+          <div
+            className="sidebar-overlay"
+            onClick={() => setToggleSidebar(false)}
+          ></div>
+        )}
         <main className="main-content">
           <h1>Explore my practice project app</h1>
           <hr />

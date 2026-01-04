@@ -11,12 +11,15 @@ const Sidebar = ({
         {projectMenu.map((project) => {
           const { id, name } = project;
           return (
-            <li
-              key={id}
-              className={`${activeProject === id ? 'active' : ''}`}
-              onClick={() => selectProject(id)}
-            >
-              {name}
+            <li key={id}>
+              <button
+                className={`project-menu-btn ${
+                  activeProject === id ? 'active' : ''
+                }`}
+                onClick={() => selectProject(id)}
+              >
+                {name}
+              </button>
             </li>
           );
         })}
