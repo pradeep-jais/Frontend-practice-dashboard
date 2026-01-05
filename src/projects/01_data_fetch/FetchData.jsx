@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './styles.css';
+import Loading from '../../components/Loading';
 
 const API_URL = 'https://jsonplaceholder.typicode.com/posts?_limit=6';
 
@@ -29,7 +30,7 @@ function FetchData() {
     };
   }, []);
 
-  if (loading) return <p style={{ padding: '1rem' }}>Loading posts…</p>;
+  if (loading) return <Loading />;
   if (error)
     return (
       <p style={{ padding: '1rem', color: 'var(--color-error)' }}>
