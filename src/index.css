@@ -7,14 +7,14 @@
   --color-text-primary: #111827;
   --color-text-secondary: #6b7280;
 
-  --color-border: #e5e7eb;
+  --color-border: #b4b4b5;
 
   --color-success: #16a34a;
   --color-error: #dc2626;
   --color-warning: #f59e0b;
 
   --color-shadow-light: rgba(0, 0, 0, 0.2);
-  --color-shadow-dark: rgba(0, 0, 0, 0.3)
+  --color-shadow-dark: rgba(0, 0, 0, 0.3);
 
   --radius: 0.25rem;
 
@@ -36,8 +36,6 @@ a {
 a:hover {
   color: var(--color-primary-dark);
 }
-
-
 
 .btn {
   border-radius: 8px;
@@ -62,7 +60,7 @@ a:hover {
     --color-text-primary: #f8fafc; /* main text */
     --color-text-secondary: #94a3b8; /* muted text */
 
-    --color-border: #334155;
+    --color-border: #dcdcdd;
 
     --color-primary-dark: #3b82f6; /* blue */
     --color-secondary: #64748b;
@@ -71,8 +69,8 @@ a:hover {
     --color-error: #ef4444;
     --color-warning: #facc15;
 
-     --color-shadow-light: rgba(255, 255, 255, 0.2);
-  --color-shadow-dark: rgba(255, 255, 255, 0.3);
+    --color-shadow-light: rgba(255, 255, 255, 0.2);
+    --color-shadow-dark: rgba(255, 255, 255, 0.3);
     color: var(--color-text-primary);
     background-color: var(--color-bg);
   }

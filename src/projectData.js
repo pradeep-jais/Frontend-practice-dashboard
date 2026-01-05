@@ -1,6 +1,7 @@
 import FetchData from './projects/01_data_fetch';
 import BlogCard from './projects/02_blog_card';
 import CardUI from './projects/03_card_ui';
+import Products from './projects/04_products';
 
 export const projectMenu = [
   {
@@ -17,5 +18,10 @@ export const projectMenu = [
     id: '03_card_ui',
     name: 'card UI',
     component: CardUI,
+  },
+  {
+    id: '04_products',
+    name: 'Products',
+    component: Products,
   },
 ];
