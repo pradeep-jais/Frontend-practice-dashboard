@@ -99,7 +99,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 20rem;
+  padding: 4rem 0;
 }
 .loader-1 {
   width: 50px;
@@ -147,6 +147,10 @@ img {
   to {
     transform: rotate(1turn);
   }
+}
+.error-page {
+  text-align: center;
+  padding: 3rem 2rem;
 }
 /* Home page */
 .navbar {

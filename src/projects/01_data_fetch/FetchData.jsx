@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './styles.css';
 import Loading from '../../components/Loading';
+import Error from '../../components/Error';
 
 const API_URL = 'https://jsonplaceholder.typicode.com/posts?_limit=6';
 
@@ -21,7 +22,9 @@ function FetchData() {
         if (mounted) setPosts(data);
       })
       .catch((err) => {
-        if (mounted) setError(err.message || 'Failed to fetch');
+        if (mounted) {
+          setError(err.message || 'Something went wrong: unable to fetch data');
+        }
       })
       .finally(() => mounted && setLoading(false));
 
@@ -30,32 +33,30 @@ function FetchData() {
     };
   }, []);
 
-  if (loading) return <Loading />;
-  if (error)
-    return (
-      <p style={{ padding: '1rem', color: 'var(--color-error)' }}>
-        Error: {error}
-      </p>
-    );
-
   return (
     <section className="section">
       <h2 className="section-title">Recent Posts</h2>
-      <div className="posts-container">
-        {posts.map((p) => (
-          <article className="card post-card" key={p.id}>
-            <h3>{p.title}</h3>
-            <p>
-              {p.body.slice(0, 140)}
-              {p.body.length > 140 ? '…' : ''}
-            </p>
-            <div className="tags">
-              <span className="tag">Demo</span>
-              <small>By User • {Math.floor(Math.random() * 300)} views</small>
-            </div>
-          </article>
-        ))}
-      </div>
+      {loading ? (
+        <Loading />
+      ) : error ? (
+        <Error message={error} />
+      ) : (
+        <div className="posts-container">
+          {posts.map((p) => (
+            <article className="card post-card" key={p.id}>
+              <h3>{p.title}</h3>
+              <p>
+                {p.body.slice(0, 140)}
+                {p.body.length > 140 ? '…' : ''}
+              </p>
+              <div className="tags">
+                <span className="tag">Demo</span>
+                <small>By User • {Math.floor(Math.random() * 300)} views</small>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
     </section>
   );
 }
