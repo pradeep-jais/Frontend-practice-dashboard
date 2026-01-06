@@ -3,7 +3,7 @@ import ProductCard from './ProductCard.jsx';
 import Loading from '../../../components/Loading.jsx';
 import Error from '../../../components/Error.jsx';
 
-const URL = 'https://ummyjson.com/products';
+const URL = 'https://dummyjson.com/products';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -37,15 +37,7 @@ const Products = () => {
         .filter((_, i) => i < 15)
         .reverse()
         .map((product) => {
-          const { id, title, thumbnail, description } = product;
-          return (
-            <ProductCard
-              key={id}
-              title={title}
-              img={thumbnail}
-              description={description}
-            />
-          );
+          return <ProductCard key={product.id} {...product} />;
         })}
     </>
   );
