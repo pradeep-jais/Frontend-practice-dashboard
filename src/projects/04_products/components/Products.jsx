@@ -5,7 +5,7 @@ import Error from '../../../components/Error.jsx';
 
 const URL = 'https://dummyjson.com/products';
 
-const Products = () => {
+const Products = ({ filteredProducts }) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -33,7 +33,7 @@ const Products = () => {
 
   return (
     <>
-      {products
+      {(filteredProducts.length > 0 ? filteredProducts : products)
         .filter((_, i) => i < 15)
         .reverse()
         .map((product) => {

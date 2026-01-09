@@ -3,8 +3,24 @@ import { useState } from 'react';
 const Card = ({ ...product }) => {
   const [isLiked, setIsLiked] = useState(false);
 
-  const handleLike = () => {
+  const handleLike = (product) => {
     setIsLiked(!isLiked);
+
+    let wishListedProducts =
+      JSON.parse(localStorage.getItem('wishListedProducts')) || [];
+
+    if (!isLiked) {
+      wishListedProducts.push(product);
+    } else {
+      wishListedProducts = [
+        ...wishListedProducts.filter((item) => item.id !== product.id),
+      ];
+    }
+
+    localStorage.setItem(
+      'wishListedProducts',
+      JSON.stringify(wishListedProducts)
+    );
   };
 
   const getOriginalPrice = (price, discountPercentage) => {
@@ -46,7 +62,10 @@ const Card = ({ ...product }) => {
         </div>
         <div className="btn-container">
           <span>Wishlist </span>
-          <button className={`btn ${isLiked && 'liked'}`} onClick={handleLike}>
+          <button
+            className={`btn ${isLiked && 'liked'}`}
+            onClick={() => handleLike(product)}
+          >
             ❤
           </button>
         </div>

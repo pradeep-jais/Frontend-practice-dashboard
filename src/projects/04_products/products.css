@@ -99,3 +99,22 @@
   /* border-radius: 50%; */
   font-size: 0.9rem;
 }
+
+/* Filter */
+.filter-btns {
+  display: flex;
+  gap: 1rem;
+  /* justify-content: end; */
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+.filter-btns .btn {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  border: none;
+  cursor: pointer;
+  box-shadow: 2px 4px 5px var(--color-shadow-light);
+}
+.filter-btns .btn.active {
+  background: var(--color-primary);
+}
