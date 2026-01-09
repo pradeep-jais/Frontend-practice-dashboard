@@ -1,26 +1,17 @@
 import { useState } from 'react';
 
-const Card = ({ ...product }) => {
+const Card = ({ setWishlistIds, ...product }) => {
   const [isLiked, setIsLiked] = useState(false);
 
-  const handleLike = (product) => {
+  const handleWishlist = (id) => {
     setIsLiked(!isLiked);
-
-    let wishListedProducts =
-      JSON.parse(localStorage.getItem('wishListedProducts')) || [];
-
-    if (!isLiked) {
-      wishListedProducts.push(product);
-    } else {
-      wishListedProducts = [
-        ...wishListedProducts.filter((item) => item.id !== product.id),
-      ];
-    }
-
-    localStorage.setItem(
-      'wishListedProducts',
-      JSON.stringify(wishListedProducts)
-    );
+    setWishlistIds((prevIds) => {
+      if (!isLiked) {
+        return [...prevIds, id];
+      } else {
+        return prevIds.filter((idItem) => idItem !== id);
+      }
+    });
   };
 
   const getOriginalPrice = (price, discountPercentage) => {
@@ -28,6 +19,7 @@ const Card = ({ ...product }) => {
   };
 
   const {
+    id,
     thumbnail: img,
     title,
     brand,
@@ -64,7 +56,7 @@ const Card = ({ ...product }) => {
           <span>Wishlist </span>
           <button
             className={`btn ${isLiked && 'liked'}`}
-            onClick={() => handleLike(product)}
+            onClick={() => handleWishlist(id)}
           >
             ❤
           </button>
