@@ -1,15 +1,9 @@
-import { useContext } from "react";
-// import { ThemeContext } from "../App";
-import { useThemeContext } from "../App";
+import { useGlobalContext } from "../GlobalContext";
 
 const Navbar = ({ setToggleSidebar, toggleSidebar }) => {
+  const appData = useGlobalContext();
 
-  // const data = useContext(ThemeContext);
-  // console.log(data);
-
-  const { themeData } = useThemeContext();
-  console.log(themeData);
-
+  console.log(appData);
 
 
   return (
