@@ -1,27 +1,33 @@
-import FetchData from './projects/01_data_fetch';
-import BlogCard from './projects/02_blog_card';
-import CardUI from './projects/03_card_ui';
-import Products from './projects/04_products';
+import FetchData from "./projects/01_data_fetch";
+import BlogCard from "./projects/02_blog_card";
+import CardUI from "./projects/03_card_ui";
+import Products from "./projects/04_products";
+import RefExample from "./projects/05_useRef_hook";
 
 export const projectMenu = [
   {
-    id: '01_data_fetch',
-    name: 'Data Fetching',
+    id: "01_data_fetch",
+    name: "Data Fetching",
     component: FetchData,
   },
   {
-    id: '02_blog_card',
-    name: 'Blog post',
+    id: "02_blog_card",
+    name: "Blog post",
     component: BlogCard,
   },
   {
-    id: '03_card_ui',
-    name: 'card UI',
+    id: "03_card_ui",
+    name: "card UI",
     component: CardUI,
   },
   {
-    id: '04_products',
-    name: 'Products',
+    id: "04_products",
+    name: "Products",
     component: Products,
+  },
+  {
+    id: "05_useRef_hook",
+    name: "useRef Example",
+    component: RefExample,
   },
 ];

@@ -29,17 +29,17 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Poppins', system-ui, sans-serif;
+  font-family: "Poppins", system-ui, sans-serif;
   color: var(--color-text-primary);
+  line-height: 1.6;
 }
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
 }
 p {
   font-size: 0.85rem;
   color: var(--color-text-secondary);
-  line-height: 1.25;
+  line-height: 1.4;
   margin: 0.5em 0;
 }
 img {
@@ -48,7 +48,9 @@ img {
   height: auto;
   object-fit: cover;
 }
-
+li {
+  color: var(--color-text-secondary);
+}
 /* Global */
 * {
   margin: 0;
@@ -120,7 +122,11 @@ img {
   aspect-ratio: 1;
   --_c: no-repeat
     radial-gradient(farthest-side, var(--color-primary-dark) 92%, #0000);
-  background: var(--_c) top, var(--_c) left, var(--_c) right, var(--_c) bottom;
+  background:
+    var(--_c) top,
+    var(--_c) left,
+    var(--_c) right,
+    var(--_c) bottom;
   background-size: 12px 12px;
   animation: l2 1s infinite;
 }
@@ -200,7 +206,7 @@ img {
   position: relative;
 }
 .sidebar-overlay {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   z-index: 10;
@@ -243,7 +249,9 @@ img {
 }
 .sidebar h3 {
   text-transform: capitalize;
-  font-family: zilla slab, serif;
+  font-family:
+    zilla slab,
+    serif;
   margin-bottom: 0.5rem;
 }
 .sidebar ul {
