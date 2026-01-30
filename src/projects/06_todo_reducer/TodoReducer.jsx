@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useReducer } from "react";
 import "./styles.css";
 
 function generateId() {
@@ -13,10 +13,44 @@ const defaultFruits = ["Apple", "Banana", "Orange", "Mango", "Grapes"].map((name
     name,
 }));
 
+const initialState = {
+    fruits: defaultFruits,
+    inputValue: '',
+}
+
+const reducer = (state, action) => {
+    if (action.type === 'CHANGE_INPUT') {
+        return {
+            ...state, inputValue: action.payload.input
+        }
+    }
+    if (action.type === 'ADD_FRUIT') {
+        const value = state.inputValue.trim();
+        if (!value) return state;
+        return {
+            ...state,
+            fruits: [...state.fruits, { id: generateId(), name: value }],
+            inputValue: '',
+        }
+    }
+    return state;
+}
+
 export default function TodoReducer() {
-    const [fruits /*, setFruits */] = useState(defaultFruits);
+    const [state, dispatch] = useReducer(reducer, initialState);
+    const { fruits } = state;
+
+    console.log(state);
 
 
+    const handleInputChange = (e) => {
+        dispatch({ type: 'CHANGE_INPUT', payload: { input: e.target.value } });
+    }
+
+    const addFruit = (e) => {
+        e.preventDefault();
+        dispatch({ type: 'ADD_FRUIT' })
+    }
 
     return (
         <section className="todo-reducer">
@@ -24,9 +58,12 @@ export default function TodoReducer() {
             <div className="card">
                 <h3 className="title">Fruit List</h3>
 
-                <form className="add-form" onSubmit={(e) => e.preventDefault()}>
-                    <input className="input" placeholder="Add a fruit..." aria-label="Add fruit" />
-                    <button type="button" className="btn primary">Add</button>
+                <form className="add-form" onSubmit={(e) => addFruit(e)}>
+                    <input className="input" placeholder="Add a fruit..." aria-label="Add fruit"
+                        value={state.inputValue}
+                        onChange={(e) => handleInputChange(e)}
+                    />
+                    <button type="submit" className="btn primary">Add</button>
                 </form>
 
                 <ul className="fruit-list">
