@@ -1,47 +1,17 @@
-import { useState, useReducer } from "react";
+import { useReducer } from "react";
 import "./styles.css";
-
-function generateId() {
-    if (typeof crypto !== "undefined" && crypto.randomUUID) {
-        return crypto.randomUUID();
-    }
-    return `id-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
-}
-
-const defaultFruits = ["Apple", "Banana", "Orange", "Mango", "Grapes"].map((name) => ({
-    id: generateId(),
-    name,
-}));
+import reducer from "./utils/todoReducer";
+import { defaultFruits } from "./data";
 
 const initialState = {
     fruits: defaultFruits,
     inputValue: '',
 }
 
-const reducer = (state, action) => {
-    if (action.type === 'CHANGE_INPUT') {
-        return {
-            ...state, inputValue: action.payload.input
-        }
-    }
-    if (action.type === 'ADD_FRUIT') {
-        const value = state.inputValue.trim();
-        if (!value) return state;
-        return {
-            ...state,
-            fruits: [...state.fruits, { id: generateId(), name: value }],
-            inputValue: '',
-        }
-    }
-    return state;
-}
-
 export default function TodoReducer() {
     const [state, dispatch] = useReducer(reducer, initialState);
-    const { fruits } = state;
-
-    console.log(state);
-
+    const { fruits, inputValue } = state;
+    // console.log(state);
 
     const handleInputChange = (e) => {
         dispatch({ type: 'CHANGE_INPUT', payload: { input: e.target.value } });
@@ -60,7 +30,7 @@ export default function TodoReducer() {
 
                 <form className="add-form" onSubmit={(e) => addFruit(e)}>
                     <input className="input" placeholder="Add a fruit..." aria-label="Add fruit"
-                        value={state.inputValue}
+                        value={inputValue}
                         onChange={(e) => handleInputChange(e)}
                     />
                     <button type="submit" className="btn primary">Add</button>
