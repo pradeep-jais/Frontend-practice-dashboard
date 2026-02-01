@@ -1,20 +1,38 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 
 const GlobalContext = createContext();
 
+// custom hook
 export const useGlobalContext = () => useContext(GlobalContext);
 
-const AppContext = ({ children }) => {
-    const [theme, setTheme] = useState("dark");
+// Reducer + Context = Global State Management(like Redux)
+// Reducer - manages complex state logic
+// Context - provides a way to pass data through the component tree
 
-    const appData = {
-        name: "Project hub",
-        version: "1.0.0",
-        theme,
-        setTheme,
+const appData = {
+    appName: "Project hub",
+    version: "1.0.0",
+    user: null,
+    isLoading: false,
+    error: null,
+    theme: "dark",
+}
+
+const reducer = (state, action) => {
+    if (action.type === 'CHANGE_THEME') {
+        return {
+            ...state,
+            theme: action.payload.theme
+        }
     }
+    return state;
+}
+
+const AppContext = ({ children }) => {
+    const [state, dispatch] = useReducer(reducer, appData);
+
     return (
-        <GlobalContext.Provider value={appData}>
+        <GlobalContext.Provider value={{ ...state, dispatch }}>
             {children}
         </GlobalContext.Provider>
     )
