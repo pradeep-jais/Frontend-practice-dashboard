@@ -1,15 +1,31 @@
 import { useState } from "react";
 import { auth } from "../firebase";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 
 const authProvider = new GoogleAuthProvider();
 
 const Login = () => {
+  const [user, setUser] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   const handleGoogleSignIn = async () => {
-    const result = await signInWithPopup(auth, authProvider);
-    console.log(result);
+    try {
+      const result = await signInWithPopup(auth, authProvider);
+      setUser(result.user);
+      console.log("Logged in successfully: ", result.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setUser(null);
+      console.log("User logged out successfully");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -23,12 +39,26 @@ const Login = () => {
         >
           X
         </button>
-        <h3>Please, Log In</h3>
-        <div className="btn-container">
-          <button className="btn login-btn" onClick={handleGoogleSignIn}>
-            Login with google
-          </button>
-        </div>
+        <h3>Firebase Auth options</h3>
+        {!user ? (
+          <>
+            <p>Please, Log In</p>
+            <div className="btn-container">
+              <button className="btn login-btn" onClick={handleGoogleSignIn}>
+                Login with google
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <p>Welcome, {user.displayName}</p>
+            <div className="btn-container">
+              <button className="btn logout-btn" onClick={handleLogout}>
+                Logout
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
