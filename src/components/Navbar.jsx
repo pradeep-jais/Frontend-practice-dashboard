@@ -5,7 +5,6 @@ const Navbar = ({ setToggleSidebar, toggleSidebar }) => {
 
   console.log(appData);
 
-
   return (
     <nav className="navbar">
       <div className="max-width">

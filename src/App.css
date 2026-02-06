@@ -158,7 +158,11 @@ li {
   text-align: center;
   padding: 3rem 2rem;
 }
-/* Home page */
+/*
+#################
+ Home page 
+################
+ */
 .navbar {
   background-color: var(--color-surface);
   box-shadow: 0 2px 5px var(--color-shadow-light);
@@ -282,4 +286,48 @@ li {
 .project-menu-btn.active {
   background: var(--color-primary-dark);
   font-weight: bold;
+}
+
+/* 
+##################
+Login page
+##################
+*/
+.modal {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.modal.hide {
+  display: none;
+}
+.login-ui {
+  min-width: 20rem;
+  min-height: 12rem;
+  background: var(--color-surface);
+  padding: 3rem 2rem;
+  position: relative;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 8px var(--color-shadow-dark);
+}
+.close-modal-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-error);
+  cursor: pointer;
+}
+.login-ui h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+.login-ui .btn-container {
+  text-align: center;
 }
