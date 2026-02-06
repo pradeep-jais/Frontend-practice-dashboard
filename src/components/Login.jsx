@@ -1,7 +1,16 @@
 import { useState } from "react";
+import { auth } from "../firebase";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
+const authProvider = new GoogleAuthProvider();
 
 const Login = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
+
+  const handleGoogleSignIn = async () => {
+    const result = await signInWithPopup(auth, authProvider);
+    console.log(result);
+  };
 
   return (
     <div className={`modal ${isModalOpen ? "" : "hide"}`}>
@@ -16,7 +25,9 @@ const Login = () => {
         </button>
         <h3>Please, Log In</h3>
         <div className="btn-container">
-          <button className="btn login-btn">Login with google</button>
+          <button className="btn login-btn" onClick={handleGoogleSignIn}>
+            Login with google
+          </button>
         </div>
       </div>
     </div>
