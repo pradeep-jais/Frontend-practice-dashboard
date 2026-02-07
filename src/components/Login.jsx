@@ -24,7 +24,6 @@ const Login = () => {
   const handleGoogleSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, authProvider);
-      setUser(result.user);
       console.log("Logged in successfully: ", result.user);
     } catch (error) {
       console.log(error);
@@ -34,7 +33,6 @@ const Login = () => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      setUser(null);
       console.log("User logged out successfully");
     } catch (error) {
       console.log(error);
