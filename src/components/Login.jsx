@@ -1,43 +1,9 @@
-import { useEffect, useState } from "react";
-import { auth } from "../firebase";
-import {
-  signInWithPopup,
-  GoogleAuthProvider,
-  signOut,
-  onAuthStateChanged,
-} from "firebase/auth";
-
-const authProvider = new GoogleAuthProvider();
+import { useState } from "react";
+import { useGlobalContext } from "../GlobalContext";
 
 const Login = () => {
-  const [user, setUser] = useState(null);
+  const { user, handleGoogleSignIn, handleLogout } = useGlobalContext();
   const [isModalOpen, setIsModalOpen] = useState(true);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user || null);
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  const handleGoogleSignIn = async () => {
-    try {
-      const result = await signInWithPopup(auth, authProvider);
-      console.log("Logged in successfully: ", result.user);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-      console.log("User logged out successfully");
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <div className={`modal ${isModalOpen ? "" : "hide"}`}>
